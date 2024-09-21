@@ -5,6 +5,7 @@
     <vendor>mrysissb</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
@@ -15,4 +16,10 @@
     <applicationListeners>
         <listener class="com.github.mrysissb.mrysideaplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+    <actions>
+        <action id="selectTable" class="com.github.mrysissb.mrysideaplugin.SelectTableAction" text="代码生成"
+                description="选择表格">
+            <add-to-group group-id="DatabaseViewPopupMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>
