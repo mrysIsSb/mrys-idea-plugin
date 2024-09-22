@@ -10,6 +10,8 @@ import com.intellij.ui.components.JBPanel
 import com.intellij.ui.content.ContentFactory
 import com.github.mrysissb.mrysideaplugin.MyBundle
 import com.github.mrysissb.mrysideaplugin.services.MyProjectService
+import com.intellij.database.psi.DbPsiFacade
+import com.intellij.ide.impl.ProjectUtil
 import javax.swing.JButton
 
 
@@ -34,6 +36,7 @@ class MyToolWindowFactory : ToolWindowFactory {
         fun getContent() = JBPanel<JBPanel<*>>().apply {
             val label = JBLabel(MyBundle.message("randomLabel", "?"))
 
+            val dataSources = DbPsiFacade.getInstance(ProjectUtil.getActiveProject()!!).dataSources
             add(label)
             add(JButton(MyBundle.message("shuffle")).apply {
                 addActionListener {
